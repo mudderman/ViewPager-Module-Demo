@@ -5,75 +5,157 @@ function FirstView() {
 	var pagerModule = require("net.bajawa.pager");
 	var ViewPagerView = require("ui/ViewPagerView");
 	
-	/*
-	 * Vanilla viewpager
-	 */
-	var button = Ti.UI.createButton({
-		title: '"Vanilla" ViewPager',
-		top: 10
-	});
-	button.addEventListener("click", function (e) {
-		new ViewPagerView(false, { tabStyle: pagerModule.STYLE_TABS_NONE }).open();
-	});
-	self.add(button);
+	var dummyTableData = (function () {
+		var a = [];
+		for (var i=0; i < 100; i++) a.push({ title: "I am item " + i });
+		return a;
+	}());
 	
-	/*
-	 * Vanilla viewpager with indicator
-	 */
-	button = Ti.UI.createButton({
-		title: '"Vanilla" ViewPager w/ indicator',
-		top: 80
-	});
-	button.addEventListener("click", function (e) {
-		new ViewPagerView(true, { tabStyle: pagerModule.STYLE_TABS_NONE }).open();
-	});
-	self.add(button);
+	var pagerData = [
+		{ title: "First tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Second tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Third tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Fourth tab",	view: Ti.UI.createTableView({ data: dummyTableData }) }
+	];
 	
-	/*
-	 * viewpager with fixed tabs
-	 */
-	button = Ti.UI.createButton({
-		title: 'ViewPager w/ fixed tabs',
-		top: 150
-	});
-	button.addEventListener("click", function (e) {
-		new ViewPagerView(false, { tabStyle: pagerModule.STYLE_TABS_NORMAL }).open();
-	});
-	self.add(button);
+	var pagerDataScrolling = [
+		{ title: "First tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Second tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Third tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Fourth tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Fifth tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Sixth tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Seventh tab",	view: Ti.UI.createTableView({ data: dummyTableData }) },
+		{ title: "Eight tab",	view: Ti.UI.createTableView({ data: dummyTableData }) }
+	];
 	
-	/*
-	 * viewpager with fixed tabs and indicator
-	 */
-	button = Ti.UI.createButton({
-		title: 'ViewPager w/ fixed tabs and indicator',
-		top: 220
-	});
-	button.addEventListener("click", function (e) {
-		new ViewPagerView(true, { tabStyle: pagerModule.STYLE_TABS_NORMAL }).open();
-	});
-	self.add(button);
-	
-	/*
-	 * viewpager with fixed tabs and custom colors
-	 */
-	button = Ti.UI.createButton({
-		title: 'ViewPager w/ fixed tabs and custom colors',
-		top: 290
-	});
-	button.addEventListener("click", function (e) {
-		new ViewPagerView(false, { 
-			tabStyle: pagerModule.STYLE_TABS_NORMAL,
-			backgroundColor: "#0000ff",
-			dividerColor: "#00ff00",
-			lineColor: "#ffffff",
-			lineColorSelected: "#ff0000",
-			font: {
-				size: 14,
-				color: "#ff0000"
+	var tableData = [
+		{ 
+			title: '"Vanilla" ViewPager',
+			opts: {
+				data: pagerData,
+				tabs: {
+					style: pagerModule.NONE
+				}
 			}
-		}).open();
+		},
+		{
+			title: '"Vanilla" ViewPager w/ indicator',
+			opts: {
+				data: pagerData,
+				tabs: {
+					style: pagerModule.NONE
+				},
+				indicator: {
+					style: pagerModule.LINE
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ fixed tabs',
+			opts: {
+				data: pagerData,
+				tabs: {
+					style: pagerModule.NORMAL
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ fixed tabs and indicator',
+			opts: {
+				data: pagerData,
+				tabs: {
+					style: pagerModule.NORMAL
+				},
+				indicator: {
+					style: pagerModule.LINE
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ fixed tabs and custom styling',
+			opts: {
+				data: pagerData,
+				tabs: {
+					style: pagerModule.NORMAL,
+					backgroundColor: "#cccccc",
+					backgroundColorSelected: "#fff000",
+					lineColor: "#00ff00",
+					lineColorSelected: "#0000ff",
+					lineHeight: 5,
+					lineHeightSelected: 10,
+					font: {
+						size: 16,
+						color: "#000fff",
+						colorSelected: "#aabbcc"
+					},
+					padding: {
+						left: 0,
+						top: 15,
+						right: 0,
+						bottom: 15
+					}
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ scrolling tabs',
+			opts: {
+				data: pagerDataScrolling,
+				tabs: {
+					style: pagerModule.SCROLLING
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ scrolling tabs and indicator',
+			opts: {
+				data: pagerDataScrolling,
+				tabs: {
+					style: pagerModule.SCROLLING
+				},
+				indicator: {
+					style: pagerModule.LINE
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ scrolling tabs and custom styling',
+			opts: {
+				data: pagerDataScrolling,
+				tabs: {
+					style: pagerModule.SCROLLING,
+					backgroundColor: "#cccccc",
+					backgroundColorSelected: "#fff000",
+					lineColor: "#00ff00",
+					lineColorSelected: "#0000ff",
+					lineHeight: 5,
+					lineHeightSelected: 10,
+					font: {
+						size: 16,
+						color: "#000fff",
+						colorSelected: "#aabbcc"
+					},
+					padding: {
+						left: 20,
+						top: 15,
+						right: 20,
+						bottom: 15
+					}
+				}
+			}
+		},
+	];
+
+	var table = Ti.UI.createTableView({
+		data: tableData
 	});
-	self.add(button);
+	
+	table.addEventListener("click", function (e) {
+		new ViewPagerView(e.rowData.opts).open();
+	});
+	
+	self.add(table);
 	
 	return self;
 }

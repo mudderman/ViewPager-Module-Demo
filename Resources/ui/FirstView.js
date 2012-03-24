@@ -177,22 +177,18 @@ function FirstView() {
 				tabs: {
 					style: pagerModule.MARKET,
 					backgroundColor: "#3b3b3b",
-					// lineColor: "#91a438",
-					// lineColorSelected: "#91a438",
 					lineHeight: 0,
 					lineHeightSelected: 0,
 					font: {
 						size: 16,
 						color: "#91a438",
 						colorSelected: "#91a438",
-						// bold: false
 					},
 					padding: {
 						// top: 20,
 						bottom: 15,
 						// title: 40,
-						clipPadding: -10,
-						// line: 20
+						clip: -10,
 					}
 				}
 			}

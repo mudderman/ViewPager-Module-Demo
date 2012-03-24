@@ -52,6 +52,22 @@ function FirstView() {
 			}
 		},
 		{
+			title: '"Vanilla" ViewPager w/ custom indicator',
+			opts: {
+				data: pagerData,
+				tabs: {
+					style: pagerModule.NONE
+				},
+				indicator: {
+					style: pagerModule.LINE,
+					height: 5,
+					color: "#91a438",
+					fadeOutTime: 100,
+					fadingDuration: 1000
+				}
+			}
+		},
+		{
 			title: 'ViewPager w/ fixed tabs',
 			opts: {
 				data: pagerData,
@@ -141,6 +157,42 @@ function FirstView() {
 						top: 15,
 						right: 20,
 						bottom: 15
+					}
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ market tabs',
+			opts: {
+				data: pagerDataScrolling,
+				tabs: {
+					style: pagerModule.MARKET
+				}
+			}
+		},
+		{
+			title: 'ViewPager w/ market tabs and custom styling',
+			opts: {
+				data: pagerDataScrolling,
+				tabs: {
+					style: pagerModule.MARKET,
+					backgroundColor: "#3b3b3b",
+					// lineColor: "#91a438",
+					// lineColorSelected: "#91a438",
+					lineHeight: 0,
+					lineHeightSelected: 0,
+					font: {
+						size: 16,
+						color: "#91a438",
+						colorSelected: "#91a438",
+						// bold: false
+					},
+					padding: {
+						// top: 20,
+						bottom: 15,
+						// title: 40,
+						clipPadding: -10,
+						// line: 20
 					}
 				}
 			}

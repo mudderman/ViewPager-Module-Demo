@@ -1,8 +1,8 @@
-#appname: ViewPagerDemo
-#publisher: tomper
-#url: http://www.bajawa.net
-#image: appicon.png
-#appid: net.bajawa.pagerdemo
-#desc: undefined
-#type: mobile
-#guid: c3467794-b5dc-4776-9f27-ba7dffde620e
+#appname:ViewPagerDemo
+#publisher:Tomas Persson
+#url:http://www.tomaspersson.com
+#image:appicon.png
+#appid:net.bajawa.pagerdemo
+#desc:Demo project for my ViewPager module.
+#type:mobile
+#guid:c3467794-b5dc-4776-9f27-ba7dffde620e

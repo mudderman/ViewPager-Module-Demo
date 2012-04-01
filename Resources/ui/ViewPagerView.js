@@ -8,7 +8,9 @@ function FirstView (options) {
 	
 	var pagerModule = require("net.bajawa.pager");
 
-	win.add(pagerModule.createViewPager(options));
+	var viewPager = pagerModule.createViewPager(options);
+	
+	win.add(viewPager);
 	
 	return win;
 }

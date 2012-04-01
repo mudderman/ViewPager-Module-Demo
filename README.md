@@ -2,6 +2,8 @@
 
 This module brings the [Android ViewPager](http://developer.android.com/reference/android/support/v4/view/ViewPager.html) to the Titanium Mobile SDK.
 
+You can download a pre-built version of this app on [Google Play](https://play.google.com/store/apps/details?id=net.bajawa.pagerdemo)
+
 ## Reference
 
 To create a new view pager you use the factory method createViewPager(opts).
@@ -24,10 +26,6 @@ or like this if you don't need tabs:
 		tiView1, tiView2, tiView3
 	]
 	
-This can also be set using
-
-	viewPager.setData(dataArray)
-
 ### tabs - Object
 
 The main options for styling the tabs. Can have the following attributes:
@@ -42,7 +40,7 @@ The main options for styling the tabs. Can have the following attributes:
 	<tr>
 		<td>style</td>
 		<td>Integer constant</td>
-		<td>Can be any of the following constants: <b>NONE</b>, <b>NORMAL</b>, <b>SCROLLING</b></td>
+		<td>Can be any of the following constants: <b>NONE</b>, <b>NORMAL</b>, <b>SCROLLING</b>, <b>MARKET</b></td>
 	</tr>
 	
 	<tr>
@@ -193,6 +191,50 @@ For now you can use one attribute to the object, but more are planned.
 		<td>In milliseconds. How long the line should be fading.</td>
 	</tr>
 </table>
+
+### Events
+
+You can add three different type of events for the ViewPager:
+
+**pageChange**, will trigger each time the page was changed.
+Parameters returned from event: to, from
+
+    pager.addEventListener("pageChange", funtion (e) {
+        Ti.API.debug("Page changed from " + e.from + " to " + e.to);
+    });
+
+**pageScroll**, will spam you with information about the page currently being scrolled:
+Parameters returned: page, offset, offsetPx
+
+    pager.addEventListener("pageScroll", function (e) {
+        Ti.API.debug("Scrolling page " + e.page + " offset: " + e.offset + ", offset in pixels: " + e.offsetPx);
+    });
+
+**pageState**, the state of the page being scrolled
+Parameters returned: page, state, stateString
+
+    pager.addEventListener("pageState", function (e) {
+        Ti.API.debug("Page " + e.page + " has state " + e.state + " = " + e.stateString);
+    });
+
+state can be any of the contants:
+
+**STATE_IDLE**, **STATE_DRAGGING**, **STATE_SETTLING**
+
+stateString is just a string representation of the state:
+**idle**, **dragging** and **settling**
+
+
+### Constants
+
+For tab styles:
+**NONE**, **NORMAL**, **SCROLLING** and **MARKET**
+
+For indicator style:
+**LINE** (more coming...)
+
+For "pageState" event:
+**STATE_IDLE**, **STATE_DRAGGING**, **STATE_SETTLING**
 
 ## Usage
 

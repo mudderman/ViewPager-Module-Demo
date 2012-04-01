@@ -174,13 +174,14 @@ function FirstView() {
 			title: 'ViewPager w/ market tabs and custom styling',
 			opts: {
 				data: pagerDataScrolling,
+				initialPage: 1,
 				tabs: {
 					style: pagerModule.MARKET,
 					backgroundColor: "#3b3b3b",
 					lineHeight: 0,
 					lineHeightSelected: 0,
 					font: {
-						size: 16,
+						size: 18,
 						color: "#91a438",
 						colorSelected: "#91a438",
 					},

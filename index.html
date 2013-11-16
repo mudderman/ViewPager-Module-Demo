@@ -1,36 +1,51 @@
 <!DOCTYPE html>
 <html>
-
   <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Viewpager module demo : A demo project for my Titanium Mobile Android ViewPager Module" />
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="viewport" content="width=640" />
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+    <link rel="stylesheet" href="stylesheets/core.css" media="screen"/>
+    <link rel="stylesheet" href="stylesheets/mobile.css" media="handheld, only screen and (max-device-width:640px)"/>
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css"/>
 
-    <title>Viewpager module demo</title>
+    <script type="text/javascript" src="javascripts/modernizr.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script type="text/javascript" src="javascripts/headsmart.min.js"></script>
+    <script type="text/javascript">
+      $(document).ready(function () {
+        $('#main_content').headsmart()
+      })
+    </script>
+    <title>Viewpager module demo by mudderman</title>
   </head>
 
   <body>
+    <a id="forkme_banner" href="https://github.com/mudderman/ViewPager-Module-Demo">View on GitHub</a>
+    <div class="shell">
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/mudderman/ViewPager-Module-Demo">View on GitHub</a>
+      <header>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <h1>Viewpager module demo</h1>
+            <h2>A demo project for my Titanium Mobile Android ViewPager Module</h2>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+      </header>
 
-          <h1 id="project_title">Viewpager module demo</h1>
-          <h2 id="project_tagline">A demo project for my Titanium Mobile Android ViewPager Module</h2>
+      <section id="downloads">
+        <span class="inner">
+          <a href="https://github.com/mudderman/ViewPager-Module-Demo/zipball/master" class="zip"><em>download</em> .ZIP</a><a href="https://github.com/mudderman/ViewPager-Module-Demo/tarball/master" class="tgz"><em>download</em> .TGZ</a>
+        </span>
+      </section>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/mudderman/ViewPager-Module-Demo/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/mudderman/ViewPager-Module-Demo/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
-    </div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
+      <span class="banner-fix"></span>
+
+
+      <section id="main_content">
         <h2>
 <a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
 
@@ -262,17 +277,21 @@ Parameters returned: page, state, stateString</p>
 
 <p>See the demo project at <a href="https://github.com/mudderman/ViewPager-Module-Demo">github</a></p>
       </section>
-    </div>
 
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Viewpager module demo maintained by <a href="https://github.com/mudderman">mudderman</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      <footer>
+        <span class="ribbon-outer">
+          <span class="ribbon-inner">
+            <p>this project by <a href="https://github.com/mudderman">mudderman</a> can be found on <a href="https://github.com/mudderman/ViewPager-Module-Demo">GitHub</a></p>
+          </span>
+          <span class="left-tail"></span>
+          <span class="right-tail"></span>
+        </span>
+        <p>Generated with <a href="http://pages.github.com">GitHub Pages</a> using Merlot</p>
+        <span class="octocat"></span>
       </footer>
+
     </div>
 
     
-
   </body>
 </html>

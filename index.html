@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Viewpager module demo : A demo project for my Titanium Mobile Android ViewPager Module" />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Viewpager module demo</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/mudderman/ViewPager-Module-Demo">View on GitHub</a>
+
+          <h1 id="project_title">Viewpager module demo</h1>
+          <h2 id="project_tagline">A demo project for my Titanium Mobile Android ViewPager Module</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/mudderman/ViewPager-Module-Demo/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/mudderman/ViewPager-Module-Demo/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h2>
+<a name="description" class="anchor" href="#description"><span class="octicon octicon-link"></span></a>Description</h2>
+
+<p>This module brings the <a href="http://developer.android.com/reference/android/support/v4/view/ViewPager.html">Android ViewPager</a> to the Titanium Mobile SDK.</p>
+
+<p>You can download a pre-built version of this app on <a href="https://play.google.com/store/apps/details?id=net.bajawa.pagerdemo">Google Play</a></p>
+
+<h2>
+<a name="reference" class="anchor" href="#reference"><span class="octicon octicon-link"></span></a>Reference</h2>
+
+<p>To create a new view pager you use the factory method createViewPager(opts).</p>
+
+<pre><code>var viewPager = module.createViewPager();
+</code></pre>
+
+<p>possible options to pass into the method through the options object are:</p>
+
+<h3>
+<a name="data---array" class="anchor" href="#data---array"><span class="octicon octicon-link"></span></a>data - Array</h3>
+
+<p>An Array of TiView objects, alternatively as an object like this:</p>
+
+<pre><code>data: [
+    { title: "Tab title", view: viewObject }
+]
+</code></pre>
+
+<p>or like this if you don't need tabs:</p>
+
+<pre><code>data: [
+    tiView1, tiView2, tiView3
+]
+</code></pre>
+
+<h3>
+<a name="tabs---object" class="anchor" href="#tabs---object"><span class="octicon octicon-link"></span></a>tabs - Object</h3>
+
+<p>The main options for styling the tabs. Can have the following attributes:</p>
+
+<table>
+<tr>
+<td><b>Attribute</b></td>
+        <td><b>Type</b></td>
+        <td><b>Description</b></td>
+    </tr>
+<tr>
+<td>style</td>
+        <td>Integer constant</td>
+        <td>Can be any of the following constants: <b>NONE</b>, <b>NORMAL</b>, <b>SCROLLING</b>, <b>MARKET</b>
+</td>
+    </tr>
+<tr>
+<td>backgroundColor</td>
+        <td>Hexadecimal string</td>
+        <td>The background color of an unselected tab</td>
+    </tr>
+<tr>
+<td>backgroundColorSelected</td>
+        <td>Hexadecimal string</td>
+        <td>The background color of the selected tab (Not if style is MARKET)</td>
+    </tr>
+<tr>
+<td>lineColor</td>
+        <td>Hexadecimal string</td>
+        <td>The color of the line underneath the tab view</td>
+    </tr>
+<tr>
+<td>lineColorSelected</td>
+        <td>Hexadecimal string</td>
+        <td>The color of the line between the selected tab and the bottom line</td>
+    </tr>
+<tr>
+<td>lineHeight</td>
+        <td>Integer</td>
+        <td>Height of the bottom line</td>
+    </tr>
+<tr>
+<td>lineHeightSelected</td>
+        <td>Integer</td>
+        <td>Height of the line of the selected tab</td>
+    </tr>
+<tr>
+<td colspan="3">font (Object)</td>
+    </tr>
+<tr>
+<td>size</td>
+        <td>Integer</td>
+        <td>The size of the font on the tab</td>
+    </tr>
+<tr>
+<td>color</td>
+        <td>Hexadecimal string</td>
+        <td>The font color of an unselected tab</td>
+    </tr>
+<tr>
+<td>colorSelected</td>
+        <td>Hexadecimal string</td>
+        <td>The font color of the selected tab.</td>
+    </tr>
+<tr>
+<td>bold</td>
+        <td>Boolean</td>
+        <td>If the text should bold or not.</td>
+    </tr>
+<tr>
+<td colspan="3">padding (Object)</td>
+    </tr>
+<tr>
+<td>left</td>
+        <td>Integer</td>
+        <td>the left padding of a tab</td>
+    </tr>
+<tr>
+<td>top</td>
+        <td>Integer</td>
+        <td>the top padding of a tab</td>
+    </tr>
+<tr>
+<td>right</td>
+        <td>Integer</td>
+        <td>the right padding of a tab</td>
+    </tr>
+<tr>
+<td>bottom</td>
+        <td>Integer</td>
+        <td>the bottom padding of a tab</td>
+    </tr>
+<tr>
+<td>title</td>
+        <td>Integer</td>
+        <td>Padding between tabs. <b>NOTE: Only if style is MARKET</b>
+</td>
+    </tr>
+<tr>
+<td>clip</td>
+        <td>Integer</td>
+        <td>The padding of the left and right visible tabs. A negative value will push them ouside the view area and hide some (or all) of the text. <b>NOTE: Only if style is MARKET</b>
+</td>
+    </tr>
+</table><h3>
+<a name="indicator---object" class="anchor" href="#indicator---object"><span class="octicon octicon-link"></span></a>indicator - Object</h3>
+
+<p>If you want your viewpager to have an indicator at the bottom of the view add this to the options.</p>
+
+<p>For now you can use one attribute to the object, but more are planned.</p>
+
+<table>
+<tr>
+<td><b>Attribute</b></td>
+        <td><b>Type</b></td>
+        <td><b>Description</b></td>
+    </tr>
+<tr>
+<td>style</td>
+        <td>Integer constant</td>
+        <td>Can be <b>NONE</b> or <b>LINE</b>
+</td>
+    </tr>
+<tr>
+<td>color</td>
+        <td>Hexadecimal string</td>
+        <td>The color of the line</td>
+    </tr>
+<tr>
+<td>height</td>
+        <td>Integer</td>
+        <td>The height of the line</td>
+    </tr>
+<tr>
+<td>fadeOutTime</td>
+        <td>Integer (default: 200 miliseconds)</td>
+        <td>In milliseconds. How long before the line starts to fade out</td>
+    </tr>
+<tr>
+<td>fadingTime</td>
+        <td>Integer (default 500 milliseconds)</td>
+        <td>In milliseconds. How long the line should be fading.</td>
+    </tr>
+</table><h3>
+<a name="events" class="anchor" href="#events"><span class="octicon octicon-link"></span></a>Events</h3>
+
+<p>You can add three different type of events for the ViewPager:</p>
+
+<p><strong>pageChange</strong>, will trigger each time the page was changed.
+Parameters returned from event: to, from</p>
+
+<pre><code>pager.addEventListener("pageChange", funtion (e) {
+    Ti.API.debug("Page changed from " + e.from + " to " + e.to);
+});
+</code></pre>
+
+<p><strong>pageScroll</strong>, will spam you with information about the page currently being scrolled:
+Parameters returned: page, offset, offsetPx</p>
+
+<pre><code>pager.addEventListener("pageScroll", function (e) {
+    Ti.API.debug("Scrolling page " + e.page + " offset: " + e.offset + ", offset in pixels: " + e.offsetPx);
+});
+</code></pre>
+
+<p><strong>pageState</strong>, the state of the page being scrolled
+Parameters returned: page, state, stateString</p>
+
+<pre><code>pager.addEventListener("pageState", function (e) {
+    Ti.API.debug("Page " + e.page + " has state " + e.state + " = " + e.stateString);
+});
+</code></pre>
+
+<p>state can be any of the contants:</p>
+
+<p><strong>STATE_IDLE</strong>, <strong>STATE_DRAGGING</strong>, <strong>STATE_SETTLING</strong></p>
+
+<p>stateString is just a string representation of the state:
+<strong>idle</strong>, <strong>dragging</strong> and <strong>settling</strong></p>
+
+<h3>
+<a name="constants" class="anchor" href="#constants"><span class="octicon octicon-link"></span></a>Constants</h3>
+
+<p>For tab styles:
+<strong>NONE</strong>, <strong>NORMAL</strong>, <strong>SCROLLING</strong> and <strong>MARKET</strong></p>
+
+<p>For indicator style:
+<strong>LINE</strong> (more coming...)</p>
+
+<p>For "pageState" event:
+<strong>STATE_IDLE</strong>, <strong>STATE_DRAGGING</strong>, <strong>STATE_SETTLING</strong></p>
+
+<h2>
+<a name="usage" class="anchor" href="#usage"><span class="octicon octicon-link"></span></a>Usage</h2>
+
+<p>See the demo project at <a href="https://github.com/mudderman/ViewPager-Module-Demo">github</a></p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Viewpager module demo maintained by <a href="https://github.com/mudderman">mudderman</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
